@@ -1,0 +1,44 @@
+@mixin mobile {
+	@media (max-width: 767px) {
+		@content;
+	}
+}
+
+@mixin mobile-tablet {
+	@media (max-width: 1023px) {
+		@content;
+	}
+}
+
+@mixin tablet-desktop {
+	@media (min-width: 768px) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media (min-width: 1024px) {
+		@content;
+	}
+}
+
+@mixin icon($icon, $mask: true) {
+	$value: url('/img/sprite.svg##{$icon}') no-repeat center / 100%;
+
+	@if $mask {
+		mask: $value;
+	} @else {
+		background: $value;
+	}
+}
+
+@mixin default-interactive {
+	&:hover,
+	&:focus {
+		opacity: 0.6;
+	}
+
+	&:active {
+		opacity: 0.3;
+	}
+}
